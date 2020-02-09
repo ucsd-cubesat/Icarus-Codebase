@@ -2638,10 +2638,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="SDA%aux0"/>
-         <value>%DESELECT%</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ODCC" settingAlias="ODC2"/>
          <value>disabled</value>
       </entry>
@@ -3258,12 +3254,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="I2C2" registerAlias="I2CSTAT" settingAlias="RBF"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="UART1" registerAlias="UMODE" settingAlias="LPBACK" alias="disabled"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="I2C2" registerAlias="I2CSTAT" settingAlias="RBF"/>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="PMD1" settingAlias="SPI2MD" alias="disabled"/>
@@ -3527,7 +3523,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="I2C2" registerAlias="MICI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="RESET" registerAlias="RCON" settingAlias="DPSLP" alias="disabled"/>
@@ -3634,20 +3630,16 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="I2C2" registerAlias="I2CCON" settingAlias="I2CSIDL" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="UART1" registerAlias="UMODE" settingAlias="USIDL"/>
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPD1" settingAlias="CN12PDE" alias="enabled"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="I2C2" registerAlias="I2CCON" settingAlias="I2CSIDL" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="SCL%aux1"/>
-         <value>%DESELECT%</value>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPD1" settingAlias="CN12PDE" alias="enabled"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="I2C2" registerAlias="I2CCONH" settingAlias="SBCDE"/>
@@ -4514,12 +4506,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="I2C2" registerAlias="I2CCON" settingAlias="ACKEN" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="UART1" registerAlias="USTA" settingAlias="PERR" alias="ERROR"/>
          <value>1</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="I2C2" registerAlias="I2CCON" settingAlias="ACKEN" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPU1" settingAlias="CN12PUE" alias="disabled"/>
@@ -4606,12 +4598,12 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="I2C2" registerAlias="I2CCON" settingAlias="SMEN" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="UART1" registerAlias="USCCON" settingAlias="TXRPT" alias="Retransmits the error byte four times"/>
          <value>3</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="I2C2" registerAlias="I2CCON" settingAlias="SMEN" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRA2"/>
@@ -4974,12 +4966,12 @@
          <value>1794</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="I2C2" registerAlias="I2CCON" settingAlias="ACKEN" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="UART1" registerAlias="UWTCL" settingAlias="WTCL"/>
          <value>0</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="I2C2" registerAlias="I2CCON" settingAlias="ACKEN" alias="enabled"/>
+         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ODCB" settingAlias="ODB6"/>
@@ -5031,7 +5023,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART1" name="RedirectPrintf"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATC" settingAlias="LATC9" alias="set"/>
@@ -5832,10 +5824,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="UART1" registerAlias="UMODE" settingAlias="RTSMD" alias="disabled"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="UART1" registerAlias="UMODE" settingAlias="UEN" alias="TX_RX_RTS"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATA" settingAlias="LATA2"/>
@@ -7342,11 +7330,11 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="I2C2" registerAlias="I2CADD"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="UART1" registerAlias="USTA" settingAlias="UTXBRK" alias="COMPLETED"/>
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="UART1" registerAlias="USTA" settingAlias="UTXBRK" alias="COMPLETED"/>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="I2C2" registerAlias="I2CADD"/>
          <value>0</value>
       </entry>
       <entry>
@@ -9076,40 +9064,40 @@
          <hash>5cf9aed36a98f1befd84299036aaeb4bfdddb5186f8a00c3981a26ab176e7008</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/pin_manager.h</file>
-         <hash>d0872652cb7b54c0d3368ffb317bdd710abe92bb0dca1b8a40b0e092b792993a</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files/spi1.c</file>
          <hash>3b98e50c863a46af632bd9a392d9d4fd9d2a2aab6634ee6fa07d994cae840108</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/pin_manager.h</file>
+         <hash>d0872652cb7b54c0d3368ffb317bdd710abe92bb0dca1b8a40b0e092b792993a</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/uart1.h</file>
          <hash>12f8422a7e254a414fee70a60600488cf4773ffa4a3d278a1692337d053c013a</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/system.c</file>
-         <hash>240fcd7cdeef54e60e9dfe9360ae3b3fa73e0eb45d037e2c6d5d86c2743c26e3</hash>
-      </entry>
-      <entry>
          <file>main.c</file>
          <hash>5daacec15d9c1450b7e621b9eaa0e3f41f2b5601f5bf19678ddfd1a10c9a12c5</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/clock.h</file>
-         <hash>caedfe731836fe4039d80ee8448f16f6e3bbc351498824a9ebff9ae03e81c4fa</hash>
+         <file>mcc_generated_files/system.c</file>
+         <hash>e374cfdf7f2dd8bf5ec451f8f225e53e1c5561b85f6961ee768ad7b585369c60</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/traps.h</file>
          <hash>7c863b480f8993b1f4c5c0f3332c317a0007e816eaee6b017f15f908a53cddc7</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/clock.c</file>
-         <hash>42ac33a7900633196b00dd519c18668d18b0749bfb65bfd55bb353ad5c1a174d</hash>
+         <file>mcc_generated_files/clock.h</file>
+         <hash>caedfe731836fe4039d80ee8448f16f6e3bbc351498824a9ebff9ae03e81c4fa</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/traps.c</file>
          <hash>e6ea2035c19ad635d5063c732c97b15537a7618c1bfab83af06f4f2f1a6e326c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/clock.c</file>
+         <hash>42ac33a7900633196b00dd519c18668d18b0749bfb65bfd55bb353ad5c1a174d</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/spi1.h</file>
@@ -9121,7 +9109,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.h</file>
-         <hash>926c3fe7b2be80a5c2e9cbc41fc190dd401ab1758abf0fdb97d9063956a32827</hash>
+         <hash>4991e534bbd0643484be66f8b6f5e4f23845ad9e8b06ff40f3dd7f6ee7e243bd</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/system.h</file>
@@ -9129,23 +9117,23 @@
       </entry>
       <entry>
          <file>mcc_generated_files/interrupt_manager.c</file>
-         <hash>588da5dddac1f1ab749855760bcbfcb747d3d4e7b23aea15f7d6d6f567f7f23f</hash>
+         <hash>36965ad9c70d6c2245a53afe776b5013bb4b0192b474570c921f84fa8bee9ef0</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/uart1.c</file>
+         <hash>9dcd65bce4a36da49fce65c503a6aaad1e65e767b1b6ff272b604fd347a5287e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/i2c2.c</file>
+         <hash>2fbfe908901093a41726ef0d6abd293ede2ee2ce6779c7e8c6ad4f22957a613f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.c</file>
          <hash>93ae0889d455cb1e5acc1b2362437b05fafdd50191a2bfbe0df9653295dca1fa</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/uart1.c</file>
-         <hash>36584c76ac5f12a0118b19cfb1924a7b1626815f19854e7aa4c6e64e7eeed1d4</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/i2c2.c</file>
-         <hash>496147af8c49efdda99013f05b693c24f3bf272efff2944f923252ea43e56076</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files/pin_manager.c</file>
-         <hash>6d06d9e27fa417f2f1c943f3b851dea3d733ed5c875d2c2c1866ba1bfbfe99af</hash>
+         <hash>affea61b3b8eabc91e4592bc9257e908046665cc613b51d2eb178e609f90bdc6</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

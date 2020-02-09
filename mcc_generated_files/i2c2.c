@@ -211,6 +211,11 @@ void I2C2_Initialize(void)
     // BCL disabled; D_nA disabled; R_nW disabled; P disabled; S disabled; I2COV disabled; IWCOL disabled; 
     I2C2STAT = 0x00;
 
+    /* MI2C2 - I2C2 Master Events */
+    // clear the master interrupt flag
+    IFS3bits.MI2C2IF = 0;
+    // enable the master interrupt
+    IEC3bits.MI2C2IE = 1;
 
 }
 
@@ -223,7 +228,7 @@ uint8_t I2C2_ErrorCountGet(void)
     return ret;
 }
 
-void I2C2_MasterTasks ( void )
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _MI2C2Interrupt ( void )
 {
   
     static uint8_t  *pi2c_buf_ptr;
@@ -231,6 +236,7 @@ void I2C2_MasterTasks ( void )
     static uint8_t  i2c_bytes_left;
     static uint8_t  i2c_10bit_address_restart = 0;
 
+    IFS3bits.MI2C2IF = 0;
             
     // Check first if there was a collision.
     // If we have a Write Collision, reset and go to idle state */
@@ -663,6 +669,7 @@ void I2C2_MasterTRBInsert(
         {    
             // force the task to run since we know that the queue has
             // something that needs to be sent
+            IFS3bits.MI2C2IF = 1;
         }           
         
     }

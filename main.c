@@ -46,6 +46,9 @@
   Section: Included Files
 */
 #include "mcc_generated_files/system.h"
+#include "mcc_generated_files/uart1.h"
+#include "gps.h"
+#include <stdio.h>
 
 /*
                          Main application
@@ -54,10 +57,13 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    gps_init();
+    char line_buff[100];
 
     while (1)
     {
-        // Add your application code
+      gps_get_nmea( line_buff, 100 );
+      printf( line_buff );
     }
 
     return 1;

@@ -122,6 +122,16 @@ bool UART1_IsTxDone(void)
     return U1STAbits.TRMT;
 }
 
+int __attribute__((__section__(".libc.write"))) write(int handle, void *buffer, unsigned int len) 
+{
+    unsigned int i;
+
+    for (i = len; i; --i)
+    {
+        UART1_Write(*(char*)buffer++);
+    }
+    return(len);
+}
 
 /*******************************************************************************
 
