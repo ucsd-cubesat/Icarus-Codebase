@@ -7,6 +7,7 @@
 
 #include "gps.h"
 #include "i2c.h"
+#include <stdio.h>
 
 // I2C address of the GPS device
 #define GPS_ADDRESS  0x42
@@ -21,9 +22,14 @@
 #define REG_DATA 0xFF
 #define NO_DATA  0xFF
 
+/* Reference: u-blox M8 Receiver Description
+ * 
+ *            11.5 "DDC Port", pg. 34
+ */
+
 /* Configuration Command
  * 
- * BAUD = 19200
+ * BAUD = 9600
  * Communication Port = 0 (I2C)
  * 
  * Protocol | Threshold 9-bit  | Pin 5-bit   | Polarity  1-bit | Enable 1-bit
@@ -31,7 +37,7 @@
  * Input    | 000000000 (none) | 00000 (DDC) | 1  (Active Low) | 1 (Enabled)
  * Output   | 000000000 (none) | 00000 (DCC) | 1  (Active Low) | 1 (Enabled)
  * 
- * Fields are provided in hex.
+ * These fields are provided in hex.
  * 
  * Reference: u-blox M8 Receiver Description
  * 
@@ -39,10 +45,14 @@
  *            33.20.23.5 "Port Configuration for DDC Port", pg. 209
  */
  
-char CONF_PROTOCOL_BAUD[] = "$PUBX,41,0,0003,0002,19200,0*21";
+char CONF_PROTOCOL_BAUD[] = "$PUBX,41,0,0003,0002,9600,0*14\r\n";
 
-// Commands that disable output from all but the GPRMC/GPGGA networks
-// Notice "1" in the enabled networks, and "0" in the disabled ones
+/* Commands that disable output from all but the GPRMC/GPGGA networks
+ * Notice "1" in the enabled networks, and "0" in the disabled ones
+ * 
+ * Reference: u-blox M8 Receiver Description
+ *            32.3.3.1 "Set NMEA message outout rate", pg. 131
+ */
 char CONF_ENABLE_GPRMC[] = "$PUBX,40,RMC,1,0,0,0,0,0*46\r\n";
 char CONF_ENABLE_GPGGA[] = "$PUBX,40,GGA,1,0,0,0,0,0*5B\r\n";
 
@@ -60,6 +70,8 @@ char CONF_DISABLE_GPZDA[] = "$PUBX,40,ZDA,0,0,0,0,0,0*44\r\n";
 
 void gps_init( void ) {
   I2C_block_write( GPS_ADDRESS, CONF_PROTOCOL_BAUD, sizeof( CONF_PROTOCOL_BAUD ) - 1 );
+  I2C_block_write( GPS_ADDRESS, CONF_ENABLE_GPRMC, sizeof( CONF_ENABLE_GPRMC ) - 1 );
+  I2C_block_write( GPS_ADDRESS, CONF_ENABLE_GPGGA, sizeof( CONF_ENABLE_GPGGA ) - 1 );
   I2C_block_write( GPS_ADDRESS, CONF_DISABLE_GPGBS, sizeof( CONF_DISABLE_GPGBS ) - 1 );
   I2C_block_write( GPS_ADDRESS, CONF_DISABLE_GPGLL, sizeof( CONF_DISABLE_GPGLL ) - 1 );
   I2C_block_write( GPS_ADDRESS, CONF_DISABLE_GPGNS, sizeof( CONF_DISABLE_GPGNS ) - 1 );
@@ -90,8 +102,8 @@ uint8_t gps_get_nmea( char *buffer, const uint8_t n ) {
   // keep skipping until the first $
   while( lastChar != '$' ) {
     
-    // panic out if I2C ever errors
-    if( !I2C_block_read(GPS_ADDRESS,  &lastChar, 1 ) ) return 0;
+    // panic if I2C gives errors
+    if( !I2C_block_read( GPS_ADDRESS,  &lastChar, 1 ) ) return 0;
   }
   
   //now read the sentence, which ends in \r\n
@@ -100,6 +112,7 @@ uint8_t gps_get_nmea( char *buffer, const uint8_t n ) {
     //skip empty data
     if( lastChar != NO_DATA ) {
       buffer[i] = lastChar;
+      printf( "%c", lastChar );
       i++;
       buffer[i] = 0; // pad line with null at every step
     }
@@ -109,7 +122,7 @@ uint8_t gps_get_nmea( char *buffer, const uint8_t n ) {
     
   } while( lastChar != '\r' && lastChar != '$' && i < (n-1) );
   
-  //either lastChar = \r, or lastChar = $, i == n
+  //either lastChar = \r, lastChar = $, or i == n
   
   return 1;
 }
@@ -120,7 +133,7 @@ uint8_t gps_get_nmea( char *buffer, const uint8_t n ) {
  * @param str The string to convert
  * @return The numeric value of the string
  */
-uint8_t small_shtoui( const char *str, uint8_t len ) {
+inline uint8_t small_shtoui( const char *str, uint8_t len ) {
   
   // running total
   uint8_t val = 0;

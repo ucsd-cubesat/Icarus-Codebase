@@ -46,7 +46,7 @@
   Section: Included Files
 */
 #include "mcc_generated_files/system.h"
-#include "mcc_generated_files/uart1.h"
+#include "i2c.h"
 #include "gps.h"
 #include <stdio.h>
 
@@ -57,13 +57,18 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    gps_init();
-    char line_buff[100];
+    
+    //gps_init();
+    char buff;
 
     while (1)
     {
-      gps_get_nmea( line_buff, 100 );
-      printf( line_buff );
+      /*if( gps_get_nmea( line_buff, sizeof( line_buff ) ) )
+        printf( "Got Line: %s\r\n", line_buff );
+      else printf( "No Data\r\n" );*/
+      I2C_block_read( 0x42, &buff, 1 );
+      if( (uint8_t)buff != 0xFF )
+        printf( "%c", buff );
     }
 
     return 1;
