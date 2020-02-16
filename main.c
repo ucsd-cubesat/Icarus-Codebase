@@ -67,7 +67,7 @@ int main(void)
         printf( "Got Line: %s\r\n", line_buff );
       else printf( "No Data\r\n" );*/
       I2C_block_read( 0x42, &buff, 1 );
-      if( (uint8_t)buff != 0xFF )
+      if( buff != 0xFF )
         printf( "%c", buff );
     }
 
