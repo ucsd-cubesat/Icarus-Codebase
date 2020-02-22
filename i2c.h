@@ -1,16 +1,13 @@
 /* 
- * File:   gps.h
- * Author: Christopher Madrigal
- *
- * Created on February 11, 2020
+ * File:     i2c.h
+ * Author:   Christopher Madrigal
+ * Modified: 20 February 2020
  */
 
 #ifndef I2C_H
 #define	I2C_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
+#include <stdint.h>
 
 /**
  * Preforms a blocking write to an I2C Slave
@@ -31,10 +28,6 @@ uint8_t I2C_block_write( const uint16_t address, void *data, const uint8_t n );
  * @return 1 if the transaction was successful, 0 otherwise
  */
 uint8_t I2C_block_read( const uint16_t address, void *data, const uint8_t n );
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* I2C_H */
 

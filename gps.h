@@ -1,17 +1,12 @@
 /* 
- * File:   gps.h
- * Author: Christopher Madrigal
- *
- * Created on February 11, 2020
+ * File:     gps.h
+ * Author:   Christopher Madrigal
+ * Modified: 20 February 2020
  */
 
 #ifndef GPS_H
 #define	GPS_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-    
 #include <stdint.h>
     
 /*
@@ -103,10 +98,6 @@ uint8_t gps_get_nmea( char *buffer, const uint8_t n );
  * @return 1 if the sentence is valid, 0 otherwise
  */
 uint8_t nmea_validate( const char *sentence );
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* GPS_H */
 

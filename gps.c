@@ -1,8 +1,7 @@
 /* 
- * File:   gps.c
- * Author: Christopher Madrigal
- *
- * Created on February 11, 2020
+ * File:     gps.c
+ * Author:   Christopher Madrigal
+ * Modified: 20 February 2020
  */
 
 #include "gps.h"
