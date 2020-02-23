@@ -56,6 +56,152 @@
 */
 /**
   @Summary
+    Sets the GPIO pin, RA9, high using LATA9.
+
+  @Description
+    Sets the GPIO pin, RA9, high using LATA9.
+
+  @Preconditions
+    The RA9 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RA9 high (1)
+    LORA_RST_SetHigh();
+    </code>
+
+*/
+#define LORA_RST_SetHigh()          _LATA9 = 1
+/**
+  @Summary
+    Sets the GPIO pin, RA9, low using LATA9.
+
+  @Description
+    Sets the GPIO pin, RA9, low using LATA9.
+
+  @Preconditions
+    The RA9 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Set RA9 low (0)
+    LORA_RST_SetLow();
+    </code>
+
+*/
+#define LORA_RST_SetLow()           _LATA9 = 0
+/**
+  @Summary
+    Toggles the GPIO pin, RA9, using LATA9.
+
+  @Description
+    Toggles the GPIO pin, RA9, using LATA9.
+
+  @Preconditions
+    The RA9 must be set to an output.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Toggle RA9
+    LORA_RST_Toggle();
+    </code>
+
+*/
+#define LORA_RST_Toggle()           _LATA9 ^= 1
+/**
+  @Summary
+    Reads the value of the GPIO pin, RA9.
+
+  @Description
+    Reads the value of the GPIO pin, RA9.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    uint16_t portValue;
+
+    // Read RA9
+    postValue = LORA_RST_GetValue();
+    </code>
+
+*/
+#define LORA_RST_GetValue()         _RA9
+/**
+  @Summary
+    Configures the GPIO pin, RA9, as an input.
+
+  @Description
+    Configures the GPIO pin, RA9, as an input.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RA9 as an input
+    LORA_RST_SetDigitalInput();
+    </code>
+
+*/
+#define LORA_RST_SetDigitalInput()  _TRISA9 = 1
+/**
+  @Summary
+    Configures the GPIO pin, RA9, as an output.
+
+  @Description
+    Configures the GPIO pin, RA9, as an output.
+
+  @Preconditions
+    None.
+
+  @Returns
+    None.
+
+  @Param
+    None.
+
+  @Example
+    <code>
+    // Sets the RA9 as an output
+    LORA_RST_SetDigitalOutput();
+    </code>
+
+*/
+#define LORA_RST_SetDigitalOutput() _TRISA9 = 0
+/**
+  @Summary
     Sets the GPIO pin, RB8, high using LATB8.
 
   @Description
@@ -365,11 +511,11 @@
   @Example
     <code>
     // Set RC2 high (1)
-    SELECT_SetHigh();
+    LORA_CS_SetHigh();
     </code>
 
 */
-#define SELECT_SetHigh()          _LATC2 = 1
+#define LORA_CS_SetHigh()          _LATC2 = 1
 /**
   @Summary
     Sets the GPIO pin, RC2, low using LATC2.
@@ -389,11 +535,11 @@
   @Example
     <code>
     // Set RC2 low (0)
-    SELECT_SetLow();
+    LORA_CS_SetLow();
     </code>
 
 */
-#define SELECT_SetLow()           _LATC2 = 0
+#define LORA_CS_SetLow()           _LATC2 = 0
 /**
   @Summary
     Toggles the GPIO pin, RC2, using LATC2.
@@ -413,11 +559,11 @@
   @Example
     <code>
     // Toggle RC2
-    SELECT_Toggle();
+    LORA_CS_Toggle();
     </code>
 
 */
-#define SELECT_Toggle()           _LATC2 ^= 1
+#define LORA_CS_Toggle()           _LATC2 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RC2.
@@ -439,11 +585,11 @@
     uint16_t portValue;
 
     // Read RC2
-    postValue = SELECT_GetValue();
+    postValue = LORA_CS_GetValue();
     </code>
 
 */
-#define SELECT_GetValue()         _RC2
+#define LORA_CS_GetValue()         _RC2
 /**
   @Summary
     Configures the GPIO pin, RC2, as an input.
@@ -463,11 +609,11 @@
   @Example
     <code>
     // Sets the RC2 as an input
-    SELECT_SetDigitalInput();
+    LORA_CS_SetDigitalInput();
     </code>
 
 */
-#define SELECT_SetDigitalInput()  _TRISC2 = 1
+#define LORA_CS_SetDigitalInput()  _TRISC2 = 1
 /**
   @Summary
     Configures the GPIO pin, RC2, as an output.
@@ -487,11 +633,11 @@
   @Example
     <code>
     // Sets the RC2 as an output
-    SELECT_SetDigitalOutput();
+    LORA_CS_SetDigitalOutput();
     </code>
 
 */
-#define SELECT_SetDigitalOutput() _TRISC2 = 0
+#define LORA_CS_SetDigitalOutput() _TRISC2 = 0
 /**
   @Summary
     Sets the GPIO pin, RC4, high using LATC4.
