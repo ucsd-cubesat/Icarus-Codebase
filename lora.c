@@ -7,14 +7,18 @@
 #include "lora.h"
 #include "spi.h"
 #include "mcc_generated_files/pin_manager.h"
+#include <stdio.h>
 
 uint8_t lora_init() {
-
-  // Pull reset pin high
+  
+  // Reset LoRa
   LORA_RST_SetHigh();
   
   // Get current mode
-  uint8_t bootmode = lora_read_reg( REG_OP_MODE );
+  uint8_t bootmode = 0;
+  bootmode = lora_read_reg( REG_OP_MODE );
+  
+  printf( "LoRa initial bootmode = 0x%x\r\n", bootmode );
 
   // If not in LoRa mode, switch
   if( !(bootmode & LORA_MODE) ) {
@@ -23,6 +27,8 @@ uint8_t lora_init() {
   
   // Switch to LoRa sleep mode
   lora_write_reg( REG_OP_MODE, LORA_SLEEP );
+  
+  printf( "LoRa sleep bootmode = 0x%x\r\n", bootmode );
   
   // Set the frequency
   uint64_t freq = DEFAULT_LORA_FREQ;
@@ -95,12 +101,12 @@ uint8_t lora_read_reg( const uint8_t reg ){
   
   // For this transaction, the first byte is sent by us and the second is received
   uint8_t txbuf[2] = { reg, 0 };
-  uint8_t rxbuf[2];
+  uint8_t rxbuf[2] = { 0, 0 };
   
   // Chip select low indicates active
-  LORA_CS_SetLow();
+  //LORA_CS_SetLow();
   SPI_block_exchange( rxbuf, txbuf, 2 );
-  LORA_CS_SetHigh();
+  //LORA_CS_SetHigh();
   
   return rxbuf[1];
 }
@@ -110,12 +116,12 @@ uint8_t lora_write_reg( const uint8_t reg, const uint8_t data ) {
   // We have to set reg MSB high to indicate write
   // For this transaction, we send two bytes and receive at byte two
   uint8_t txbuf[2] = { reg | 0x80, data};
-  uint8_t rxbuf[2];
+  uint8_t rxbuf[2] = { 0, 0 };
   
   // Chip select low indicates active
-  LORA_CS_SetLow();
+  //LORA_CS_SetLow();
   SPI_block_exchange( rxbuf, txbuf, 2 );
-  LORA_CS_SetHigh();
+  //LORA_CS_SetHigh();
   
   return rxbuf[1];
 }

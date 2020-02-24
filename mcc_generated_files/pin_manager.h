@@ -56,13 +56,13 @@
 */
 /**
   @Summary
-    Sets the GPIO pin, RA9, high using LATA9.
+    Sets the GPIO pin, RA1, high using LATA1.
 
   @Description
-    Sets the GPIO pin, RA9, high using LATA9.
+    Sets the GPIO pin, RA1, high using LATA1.
 
   @Preconditions
-    The RA9 must be set to an output.
+    The RA1 must be set to an output.
 
   @Returns
     None.
@@ -72,21 +72,21 @@
 
   @Example
     <code>
-    // Set RA9 high (1)
+    // Set RA1 high (1)
     LORA_RST_SetHigh();
     </code>
 
 */
-#define LORA_RST_SetHigh()          _LATA9 = 1
+#define LORA_RST_SetHigh()          _LATA1 = 1
 /**
   @Summary
-    Sets the GPIO pin, RA9, low using LATA9.
+    Sets the GPIO pin, RA1, low using LATA1.
 
   @Description
-    Sets the GPIO pin, RA9, low using LATA9.
+    Sets the GPIO pin, RA1, low using LATA1.
 
   @Preconditions
-    The RA9 must be set to an output.
+    The RA1 must be set to an output.
 
   @Returns
     None.
@@ -96,21 +96,21 @@
 
   @Example
     <code>
-    // Set RA9 low (0)
+    // Set RA1 low (0)
     LORA_RST_SetLow();
     </code>
 
 */
-#define LORA_RST_SetLow()           _LATA9 = 0
+#define LORA_RST_SetLow()           _LATA1 = 0
 /**
   @Summary
-    Toggles the GPIO pin, RA9, using LATA9.
+    Toggles the GPIO pin, RA1, using LATA1.
 
   @Description
-    Toggles the GPIO pin, RA9, using LATA9.
+    Toggles the GPIO pin, RA1, using LATA1.
 
   @Preconditions
-    The RA9 must be set to an output.
+    The RA1 must be set to an output.
 
   @Returns
     None.
@@ -120,18 +120,18 @@
 
   @Example
     <code>
-    // Toggle RA9
+    // Toggle RA1
     LORA_RST_Toggle();
     </code>
 
 */
-#define LORA_RST_Toggle()           _LATA9 ^= 1
+#define LORA_RST_Toggle()           _LATA1 ^= 1
 /**
   @Summary
-    Reads the value of the GPIO pin, RA9.
+    Reads the value of the GPIO pin, RA1.
 
   @Description
-    Reads the value of the GPIO pin, RA9.
+    Reads the value of the GPIO pin, RA1.
 
   @Preconditions
     None.
@@ -146,18 +146,18 @@
     <code>
     uint16_t portValue;
 
-    // Read RA9
+    // Read RA1
     postValue = LORA_RST_GetValue();
     </code>
 
 */
-#define LORA_RST_GetValue()         _RA9
+#define LORA_RST_GetValue()         _RA1
 /**
   @Summary
-    Configures the GPIO pin, RA9, as an input.
+    Configures the GPIO pin, RA1, as an input.
 
   @Description
-    Configures the GPIO pin, RA9, as an input.
+    Configures the GPIO pin, RA1, as an input.
 
   @Preconditions
     None.
@@ -170,18 +170,18 @@
 
   @Example
     <code>
-    // Sets the RA9 as an input
+    // Sets the RA1 as an input
     LORA_RST_SetDigitalInput();
     </code>
 
 */
-#define LORA_RST_SetDigitalInput()  _TRISA9 = 1
+#define LORA_RST_SetDigitalInput()  _TRISA1 = 1
 /**
   @Summary
-    Configures the GPIO pin, RA9, as an output.
+    Configures the GPIO pin, RA1, as an output.
 
   @Description
-    Configures the GPIO pin, RA9, as an output.
+    Configures the GPIO pin, RA1, as an output.
 
   @Preconditions
     None.
@@ -194,12 +194,12 @@
 
   @Example
     <code>
-    // Sets the RA9 as an output
+    // Sets the RA1 as an output
     LORA_RST_SetDigitalOutput();
     </code>
 
 */
-#define LORA_RST_SetDigitalOutput() _TRISA9 = 0
+#define LORA_RST_SetDigitalOutput() _TRISA1 = 0
 /**
   @Summary
     Sets the GPIO pin, RB8, high using LATB8.
@@ -494,13 +494,13 @@
 #define MOSI_SetDigitalOutput() _TRISB9 = 0
 /**
   @Summary
-    Sets the GPIO pin, RC2, high using LATC2.
+    Sets the GPIO pin, RC3, high using LATC3.
 
   @Description
-    Sets the GPIO pin, RC2, high using LATC2.
+    Sets the GPIO pin, RC3, high using LATC3.
 
   @Preconditions
-    The RC2 must be set to an output.
+    The RC3 must be set to an output.
 
   @Returns
     None.
@@ -510,21 +510,21 @@
 
   @Example
     <code>
-    // Set RC2 high (1)
+    // Set RC3 high (1)
     LORA_CS_SetHigh();
     </code>
 
 */
-#define LORA_CS_SetHigh()          _LATC2 = 1
+#define LORA_CS_SetHigh()          _LATC3 = 1
 /**
   @Summary
-    Sets the GPIO pin, RC2, low using LATC2.
+    Sets the GPIO pin, RC3, low using LATC3.
 
   @Description
-    Sets the GPIO pin, RC2, low using LATC2.
+    Sets the GPIO pin, RC3, low using LATC3.
 
   @Preconditions
-    The RC2 must be set to an output.
+    The RC3 must be set to an output.
 
   @Returns
     None.
@@ -534,21 +534,21 @@
 
   @Example
     <code>
-    // Set RC2 low (0)
+    // Set RC3 low (0)
     LORA_CS_SetLow();
     </code>
 
 */
-#define LORA_CS_SetLow()           _LATC2 = 0
+#define LORA_CS_SetLow()           _LATC3 = 0
 /**
   @Summary
-    Toggles the GPIO pin, RC2, using LATC2.
+    Toggles the GPIO pin, RC3, using LATC3.
 
   @Description
-    Toggles the GPIO pin, RC2, using LATC2.
+    Toggles the GPIO pin, RC3, using LATC3.
 
   @Preconditions
-    The RC2 must be set to an output.
+    The RC3 must be set to an output.
 
   @Returns
     None.
@@ -558,18 +558,18 @@
 
   @Example
     <code>
-    // Toggle RC2
+    // Toggle RC3
     LORA_CS_Toggle();
     </code>
 
 */
-#define LORA_CS_Toggle()           _LATC2 ^= 1
+#define LORA_CS_Toggle()           _LATC3 ^= 1
 /**
   @Summary
-    Reads the value of the GPIO pin, RC2.
+    Reads the value of the GPIO pin, RC3.
 
   @Description
-    Reads the value of the GPIO pin, RC2.
+    Reads the value of the GPIO pin, RC3.
 
   @Preconditions
     None.
@@ -584,18 +584,18 @@
     <code>
     uint16_t portValue;
 
-    // Read RC2
+    // Read RC3
     postValue = LORA_CS_GetValue();
     </code>
 
 */
-#define LORA_CS_GetValue()         _RC2
+#define LORA_CS_GetValue()         _RC3
 /**
   @Summary
-    Configures the GPIO pin, RC2, as an input.
+    Configures the GPIO pin, RC3, as an input.
 
   @Description
-    Configures the GPIO pin, RC2, as an input.
+    Configures the GPIO pin, RC3, as an input.
 
   @Preconditions
     None.
@@ -608,18 +608,18 @@
 
   @Example
     <code>
-    // Sets the RC2 as an input
+    // Sets the RC3 as an input
     LORA_CS_SetDigitalInput();
     </code>
 
 */
-#define LORA_CS_SetDigitalInput()  _TRISC2 = 1
+#define LORA_CS_SetDigitalInput()  _TRISC3 = 1
 /**
   @Summary
-    Configures the GPIO pin, RC2, as an output.
+    Configures the GPIO pin, RC3, as an output.
 
   @Description
-    Configures the GPIO pin, RC2, as an output.
+    Configures the GPIO pin, RC3, as an output.
 
   @Preconditions
     None.
@@ -632,12 +632,12 @@
 
   @Example
     <code>
-    // Sets the RC2 as an output
+    // Sets the RC3 as an output
     LORA_CS_SetDigitalOutput();
     </code>
 
 */
-#define LORA_CS_SetDigitalOutput() _TRISC2 = 0
+#define LORA_CS_SetDigitalOutput() _TRISC3 = 0
 /**
   @Summary
     Sets the GPIO pin, RC4, high using LATC4.
