@@ -17,16 +17,14 @@
 /*
                          Main application
  */
-char payload[BUFFER_SIZE] = "Hello, World!";
+char payload[BUFFER_SIZE];
 
 int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    if( !lora_init() ) {
-      printf( "LoRA could not be initialized\r\n" );
-      while( 1 );
-    }
+    
+    if( !lora_init() ) while( 1 );
     
     //gps_init();
     //char buff;
@@ -40,10 +38,13 @@ int main(void)
         printf( "%c", buff );
     }*/
     
+    unsigned int packet = 0;
     while( 1 ) {
+      packet++;
+      sprintf( payload,"Hello, World! I am packet %d", packet);
       
       //set SPI access to fifo to the Tx base reg
-      lora_write_reg( REG_FIFO_ADDR_PTR, lora_read_reg( REG_FIFO_TX_BASE_ADDR ) );
+      lora_write_reg( REG_FIFO_ADDR_PTR, /*lora_read_reg( REG_FIFO_TX_BASE_ADDR )*/ 0 );
     
       //load payload into FIFO
       size_t i;
@@ -74,4 +75,3 @@ int main(void)
 /**
  End of File
 */
-

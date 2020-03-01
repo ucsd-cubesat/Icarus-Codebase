@@ -129,7 +129,7 @@
 #define LORA_FREQ(f) (((uint64_t)f << 19)/32E6)
 
 /* Init Values */
-#define BUFFER_SIZE 50
+#define BUFFER_SIZE 70
 #define DEFAULT_LORA_FREQ LORA_FREQ(915E6)
 #define DEFAULT_LORA_LNA 0x03
 #define DEFAULT_LORA_AGC 0x04

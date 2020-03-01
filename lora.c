@@ -27,6 +27,7 @@ uint8_t lora_init() {
   
   // Switch to LoRa sleep mode
   lora_write_reg( REG_OP_MODE, LORA_SLEEP );
+  bootmode = lora_read_reg( REG_OP_MODE );
   
   printf( "LoRa sleep bootmode = 0x%x\r\n", bootmode );
   
@@ -85,11 +86,11 @@ uint8_t lora_init() {
   //check that the module is in standby mode
   bootmode = lora_read_reg( REG_OP_MODE );
   if( bootmode != LORA_STANDBY ) {
-    //printf( "Could not initialize LORA\r\nBoot mode is 0x%x\r\n", bootmode );
+    printf( "Could not initialize LORA; Boot mode is 0x%x\r\n", bootmode );
     return 0;
   }
   
-  //printf( "LORA on standby with frequency %llu and power level %hhu dBm\r\n", freq, level );
+  printf( "LORA on standby with frequency %llu and power level %hhu dBm\r\n", freq, level );
   return 1;
 }
 
@@ -100,13 +101,13 @@ void lora_close() {
 uint8_t lora_read_reg( const uint8_t reg ){
   
   // For this transaction, the first byte is sent by us and the second is received
-  uint8_t txbuf[2] = { reg, 0 };
+  uint8_t txbuf[2] = { reg & 0x7F, 0 };
   uint8_t rxbuf[2] = { 0, 0 };
   
   // Chip select low indicates active
-  //LORA_CS_SetLow();
-  SPI_block_exchange( rxbuf, txbuf, 2 );
-  //LORA_CS_SetHigh();
+  LORA_CS_SetLow();
+  SPI_block_exchange( txbuf, rxbuf, 2 );
+  LORA_CS_SetHigh();
   
   return rxbuf[1];
 }
@@ -119,9 +120,9 @@ uint8_t lora_write_reg( const uint8_t reg, const uint8_t data ) {
   uint8_t rxbuf[2] = { 0, 0 };
   
   // Chip select low indicates active
-  //LORA_CS_SetLow();
-  SPI_block_exchange( rxbuf, txbuf, 2 );
-  //LORA_CS_SetHigh();
+  LORA_CS_SetLow();
+  SPI_block_exchange( txbuf, rxbuf, 2 );
+  LORA_CS_SetHigh();
   
   return rxbuf[1];
 }

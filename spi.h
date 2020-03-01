@@ -12,12 +12,12 @@
 /**
  * Preforms a blocking exchange to an SPI Slave
  * 
- * @param dataIn The input buffer 
- * @param dataOut The output buffer
+ * @param dataTX The output buffer
+ * @param dataRX The input buffer 
  * @param n The maximum bytes to exchange
  * @return The total number of bytes exchanged
  */
-uint16_t SPI_block_exchange( void *dataIn, void *dataOut, const uint16_t n );
+uint16_t SPI_block_exchange( void *dataTX, void *dataRX, const uint16_t n );
 
 #endif	/* SPI_H */
 

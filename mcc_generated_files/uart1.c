@@ -63,8 +63,8 @@ void UART1_Initialize(void)
     U1MODE = (0x8008 & ~(1<<15));  // disabling UARTEN bit
     // UTXISEL0 TX_ONE_CHAR; UTXINV disabled; URXEN disabled; OERR NO_ERROR_cleared; URXISEL RX_ONE_CHAR; UTXBRK COMPLETED; UTXEN disabled; ADDEN disabled; 
     U1STA = 0x00;
-    // BaudRate = 19200; Frequency = 2000000 Hz; U1BRG 25; 
-    U1BRG = 0x19;
+    // BaudRate = 9600; Frequency = 2000000 Hz; U1BRG 51; 
+    U1BRG = 0x33;
     // ADMADDR 0; ADMMASK 0; 
     U1ADMD = 0x00;
     // T0PD 1 ETU; PTRCL T0; TXRPT Retransmits the error byte once; CONV Direct; SCEN disabled; 

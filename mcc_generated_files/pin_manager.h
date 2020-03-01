@@ -202,298 +202,6 @@
 #define LORA_RST_SetDigitalOutput() _TRISA1 = 0
 /**
   @Summary
-    Sets the GPIO pin, RB8, high using LATB8.
-
-  @Description
-    Sets the GPIO pin, RB8, high using LATB8.
-
-  @Preconditions
-    The RB8 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Set RB8 high (1)
-    MISO_SetHigh();
-    </code>
-
-*/
-#define MISO_SetHigh()          _LATB8 = 1
-/**
-  @Summary
-    Sets the GPIO pin, RB8, low using LATB8.
-
-  @Description
-    Sets the GPIO pin, RB8, low using LATB8.
-
-  @Preconditions
-    The RB8 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Set RB8 low (0)
-    MISO_SetLow();
-    </code>
-
-*/
-#define MISO_SetLow()           _LATB8 = 0
-/**
-  @Summary
-    Toggles the GPIO pin, RB8, using LATB8.
-
-  @Description
-    Toggles the GPIO pin, RB8, using LATB8.
-
-  @Preconditions
-    The RB8 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Toggle RB8
-    MISO_Toggle();
-    </code>
-
-*/
-#define MISO_Toggle()           _LATB8 ^= 1
-/**
-  @Summary
-    Reads the value of the GPIO pin, RB8.
-
-  @Description
-    Reads the value of the GPIO pin, RB8.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    uint16_t portValue;
-
-    // Read RB8
-    postValue = MISO_GetValue();
-    </code>
-
-*/
-#define MISO_GetValue()         _RB8
-/**
-  @Summary
-    Configures the GPIO pin, RB8, as an input.
-
-  @Description
-    Configures the GPIO pin, RB8, as an input.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Sets the RB8 as an input
-    MISO_SetDigitalInput();
-    </code>
-
-*/
-#define MISO_SetDigitalInput()  _TRISB8 = 1
-/**
-  @Summary
-    Configures the GPIO pin, RB8, as an output.
-
-  @Description
-    Configures the GPIO pin, RB8, as an output.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Sets the RB8 as an output
-    MISO_SetDigitalOutput();
-    </code>
-
-*/
-#define MISO_SetDigitalOutput() _TRISB8 = 0
-/**
-  @Summary
-    Sets the GPIO pin, RB9, high using LATB9.
-
-  @Description
-    Sets the GPIO pin, RB9, high using LATB9.
-
-  @Preconditions
-    The RB9 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Set RB9 high (1)
-    MOSI_SetHigh();
-    </code>
-
-*/
-#define MOSI_SetHigh()          _LATB9 = 1
-/**
-  @Summary
-    Sets the GPIO pin, RB9, low using LATB9.
-
-  @Description
-    Sets the GPIO pin, RB9, low using LATB9.
-
-  @Preconditions
-    The RB9 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Set RB9 low (0)
-    MOSI_SetLow();
-    </code>
-
-*/
-#define MOSI_SetLow()           _LATB9 = 0
-/**
-  @Summary
-    Toggles the GPIO pin, RB9, using LATB9.
-
-  @Description
-    Toggles the GPIO pin, RB9, using LATB9.
-
-  @Preconditions
-    The RB9 must be set to an output.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Toggle RB9
-    MOSI_Toggle();
-    </code>
-
-*/
-#define MOSI_Toggle()           _LATB9 ^= 1
-/**
-  @Summary
-    Reads the value of the GPIO pin, RB9.
-
-  @Description
-    Reads the value of the GPIO pin, RB9.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    uint16_t portValue;
-
-    // Read RB9
-    postValue = MOSI_GetValue();
-    </code>
-
-*/
-#define MOSI_GetValue()         _RB9
-/**
-  @Summary
-    Configures the GPIO pin, RB9, as an input.
-
-  @Description
-    Configures the GPIO pin, RB9, as an input.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Sets the RB9 as an input
-    MOSI_SetDigitalInput();
-    </code>
-
-*/
-#define MOSI_SetDigitalInput()  _TRISB9 = 1
-/**
-  @Summary
-    Configures the GPIO pin, RB9, as an output.
-
-  @Description
-    Configures the GPIO pin, RB9, as an output.
-
-  @Preconditions
-    None.
-
-  @Returns
-    None.
-
-  @Param
-    None.
-
-  @Example
-    <code>
-    // Sets the RB9 as an output
-    MOSI_SetDigitalOutput();
-    </code>
-
-*/
-#define MOSI_SetDigitalOutput() _TRISB9 = 0
-/**
-  @Summary
     Sets the GPIO pin, RC3, high using LATC3.
 
   @Description
@@ -657,11 +365,11 @@
   @Example
     <code>
     // Set RC4 high (1)
-    CLOCK_SetHigh();
+    SPI_CLOCK_SetHigh();
     </code>
 
 */
-#define CLOCK_SetHigh()          _LATC4 = 1
+#define SPI_CLOCK_SetHigh()          _LATC4 = 1
 /**
   @Summary
     Sets the GPIO pin, RC4, low using LATC4.
@@ -681,11 +389,11 @@
   @Example
     <code>
     // Set RC4 low (0)
-    CLOCK_SetLow();
+    SPI_CLOCK_SetLow();
     </code>
 
 */
-#define CLOCK_SetLow()           _LATC4 = 0
+#define SPI_CLOCK_SetLow()           _LATC4 = 0
 /**
   @Summary
     Toggles the GPIO pin, RC4, using LATC4.
@@ -705,11 +413,11 @@
   @Example
     <code>
     // Toggle RC4
-    CLOCK_Toggle();
+    SPI_CLOCK_Toggle();
     </code>
 
 */
-#define CLOCK_Toggle()           _LATC4 ^= 1
+#define SPI_CLOCK_Toggle()           _LATC4 ^= 1
 /**
   @Summary
     Reads the value of the GPIO pin, RC4.
@@ -731,11 +439,11 @@
     uint16_t portValue;
 
     // Read RC4
-    postValue = CLOCK_GetValue();
+    postValue = SPI_CLOCK_GetValue();
     </code>
 
 */
-#define CLOCK_GetValue()         _RC4
+#define SPI_CLOCK_GetValue()         _RC4
 /**
   @Summary
     Configures the GPIO pin, RC4, as an input.
@@ -755,11 +463,11 @@
   @Example
     <code>
     // Sets the RC4 as an input
-    CLOCK_SetDigitalInput();
+    SPI_CLOCK_SetDigitalInput();
     </code>
 
 */
-#define CLOCK_SetDigitalInput()  _TRISC4 = 1
+#define SPI_CLOCK_SetDigitalInput()  _TRISC4 = 1
 /**
   @Summary
     Configures the GPIO pin, RC4, as an output.
@@ -779,11 +487,11 @@
   @Example
     <code>
     // Sets the RC4 as an output
-    CLOCK_SetDigitalOutput();
+    SPI_CLOCK_SetDigitalOutput();
     </code>
 
 */
-#define CLOCK_SetDigitalOutput() _TRISC4 = 0
+#define SPI_CLOCK_SetDigitalOutput() _TRISC4 = 0
 
 /**
     Section: Function Prototypes

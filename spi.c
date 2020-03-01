@@ -7,11 +7,11 @@
 #include "spi.h"
 #include "mcc_generated_files/spi1.h"
 
-uint16_t SPI_block_exchange( void *dataIn, void *dataOut, const uint16_t n ) {
+uint16_t SPI_block_exchange( void *dataTX, void *dataRX, const uint16_t n ) {
   
   // if n == 0
   if( !n ) return 0;
   
   // do exchange
-  return SPI1_Exchange8bitBuffer( (uint8_t*)dataOut, n, (uint8_t*)dataIn );
+  return SPI1_Exchange8bitBuffer( (uint8_t*)dataTX, n, (uint8_t*)dataRX );
 }
